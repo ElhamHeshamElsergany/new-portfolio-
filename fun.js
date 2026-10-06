@@ -440,7 +440,7 @@
   <span class="t-muted">…and a few hidden ones 👀</span>`);
     },
     whoami: () => print("Elham Hesham Mohamed 👩‍💻 Senior Front-End Developer · Angular · React · TypeScript"),
-    about: () => print(`6+ years building scalable, accessible and multilingual web apps.
+    about: () => print(`5+ years building scalable, accessible and multilingual web apps.
 Currently at <span class="t-accent">AlmavivA S.p.A.</span> building Italian government platforms:
 public health (FSE 2.0), fishing, maps and notifications.`),
     skills: () => print(`<span class="t-accent">frontend</span>  Angular, React, Next.js, TypeScript, JavaScript, SCSS, Bootstrap, MUI
@@ -450,7 +450,7 @@ public health (FSE 2.0), fishing, maps and notifications.`),
 <span class="t-accent">devops</span>    Git, GitLab, CI/CD, Docker, Jenkins, Kubernetes, AWS`),
     experience: () => print(`<span class="t-ok">2025 → now</span>   Senior Front-End Developer @ AlmavivA S.p.A. (Italy)
 <span class="t-ok">2022 → 2024</span>  Front-End Developer @ EYouth
-<span class="t-ok">2020 → 2022</span>  Full Stack Software Engineer @ Insight Global (US teams)`),
+<span class="t-ok">2021 → 2022</span>  Full Stack Software Engineer @ Insight Global (US teams)`),
     projects: () => print(`🏥 FSE 2.0 — Public Health Platform (Italy)
 🎣 Fishing Platform · 🗺️ Maps Platforms · 🔔 Notifications Platform
 🎓 Taibah University LMS · DEPI · Nextera Education · EYouth Learning

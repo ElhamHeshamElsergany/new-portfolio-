@@ -125,7 +125,7 @@
     ["k", "const "], ["b", "developer"], ["", " = {\n"],
     ["p", "  name"], ["", ": "], ["s", '"Elham Hesham"'], ["", ",\n"],
     ["p", "  role"], ["", ": "], ["s", '"Senior Front-End Developer"'], ["", ",\n"],
-    ["p", "  experience"], ["", ": "], ["n", "6"], ["", " + "], ["s", '" years"'], ["", ",\n"],
+    ["p", "  experience"], ["", ": "], ["n", "5"], ["", " + "], ["s", '" years"'], ["", ",\n"],
     ["p", "  company"], ["", ": "], ["s", '"AlmavivA S.p.A. (Italy)"'], ["", ",\n"],
     ["p", "  building"], ["", ": "], ["s", '"Italian gov platforms"'], ["", ",\n"],
     ["p", "  stack"], ["", ": ["], ["s", '"Angular"'], ["", ", "], ["s", '"React"'], ["", ", "], ["s", '"TypeScript"'], ["", "],\n"],
