@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elham Hesham | Senior Front-End Developer</title>
+  <meta name="description" content="Elham Hesham Mohamed — Senior Front-End Developer with 6+ years of experience in Angular, React, TypeScript and enterprise web platforms." />
+  <meta name="author" content="Elham Hesham Mohamed" />
+  <meta property="og:title" content="Elham Hesham | Senior Front-End Developer" />
+  <meta property="og:description" content="6+ years building scalable, accessible and multilingual web applications with Angular, React and TypeScript." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#07060d" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%238b5cf6'/><stop offset='1' stop-color='%2322d3ee'/></linearGradient></defs><rect width='100' height='100' rx='24' fill='url(%23g)'/><text x='50' y='66' font-size='48' font-family='Arial' font-weight='bold' text-anchor='middle' fill='white'>EH</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__logo">
+        <span>&lt;</span>EH<span>/&gt;</span>
+      </div>
+      <div class="loader__bar"><div class="loader__fill" id="loaderFill"></div></div>
+      <div class="loader__count" id="loaderCount">0%</div>
+    </div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav__logo" data-hover>
+      <span class="grad">&lt;</span>Elham<span class="grad">/&gt;</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about" class="nav__link"><span>01.</span>About</a>
+      <a href="#skills" class="nav__link"><span>02.</span>Skills</a>
+      <a href="#experience" class="nav__link"><span>03.</span>Experience</a>
+      <a href="#projects" class="nav__link"><span>04.</span>Projects</a>
+      <a href="#education" class="nav__link"><span>05.</span>Education</a>
+      <a href="#play" class="nav__link"><span>06.</span>Play 🎮</a>
+      <a href="#contact" class="nav__link"><span>07.</span>Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <div class="palette" id="palette">
+        <button class="palette-toggle" id="paletteToggle" aria-label="Change color palette" aria-expanded="false" title="Change colors" data-hover>
+          <span class="palette-toggle__ring"></span>
+        </button>
+        <div class="palette__menu" role="menu">
+          <div class="palette__title">🎨 Pick a vibe</div>
+          <div class="palette__grid">
+            <button class="swatch" data-palette="violet" style="--s1:#8b5cf6;--s2:#22d3ee;--s3:#f472b6" aria-label="Violet Dream" data-hover></button>
+            <button class="swatch" data-palette="sunset" style="--s1:#f97316;--s2:#facc15;--s3:#f43f5e" aria-label="Sunset" data-hover></button>
+            <button class="swatch" data-palette="ocean" style="--s1:#3b82f6;--s2:#2dd4bf;--s3:#818cf8" aria-label="Ocean" data-hover></button>
+            <button class="swatch" data-palette="candy" style="--s1:#ff5fa2;--s2:#7df9ff;--s3:#ffd166" aria-label="Candy" data-hover></button>
+            <button class="swatch" data-palette="matrix" style="--s1:#22c55e;--s2:#a3e635;--s3:#14b8a6" aria-label="Matrix" data-hover></button>
+            <button class="swatch" data-palette="lava" style="--s1:#ef4444;--s2:#fb923c;--s3:#e879f9" aria-label="Lava" data-hover></button>
+            <button class="swatch swatch--random" data-palette="random" aria-label="Random colors" data-hover>🎲</button>
+          </div>
+          <div class="palette__name" id="paletteName">Violet Dream</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" data-hover>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <canvas id="particles"></canvas>
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+      <div class="blob blob--3"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="hero__hello reveal">
+            <span class="wave">👋</span> Hi there, I'm
+          </p>
+          <h1 class="hero__name reveal" data-delay="100">
+            <span class="split-text">Elham Hesham</span>
+          </h1>
+          <h2 class="hero__role reveal" data-delay="200">
+            <span class="hero__role-static">I build</span>
+            <span class="typed" id="typed"></span><span class="caret">|</span>
+          </h2>
+          <p class="hero__desc reveal" data-delay="300">
+            Senior Front-End Developer with <strong>6+ years</strong> of experience crafting scalable,
+            accessible and multilingual web applications. Currently building <strong>Italian government</strong>
+            platforms for public health, fishing, maps and notifications with <strong>Angular</strong>, <strong>React</strong> &amp; <strong>TypeScript</strong>.
+          </p>
+          <div class="hero__cta reveal" data-delay="400">
+            <a href="#projects" class="btn btn--primary magnetic" data-hover>
+              <span>View My Work</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn btn--ghost magnetic" data-hover><span>Let's Talk</span></a>
+          </div>
+          <div class="hero__socials reveal" data-delay="500">
+            <a href="https://github.com/ElhamHeshamElsergany" target="_blank" rel="noopener" aria-label="GitHub" data-hover>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/webdeveloberelhamelsergany" target="_blank" rel="noopener" aria-label="LinkedIn" data-hover>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <a href="mailto:elhamhesham18@gmail.com" aria-label="Email" data-hover>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal" data-delay="300">
+          <div class="code-window tilt" data-tilt-max="8">
+            <div class="code-window__bar">
+              <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+              <span class="code-window__title">elham.developer.ts</span>
+            </div>
+            <pre class="code-window__body"><code id="codeTyped"></code><span class="code-caret"></span></pre>
+          </div>
+          <div class="floating-badge floating-badge--1"><span class="fb-icon">⚡</span>Angular Signals</div>
+          <div class="floating-badge floating-badge--2"><span class="fb-icon">⚛️</span>React / Next.js</div>
+          <div class="floating-badge floating-badge--3"><span class="fb-icon">♿</span>Accessibility</div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-indicator" aria-label="Scroll down" data-hover>
+        <span class="mouse"><span class="wheel"></span></span>
+        <span class="scroll-indicator__text">Scroll</span>
+      </a>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Angular</span><i>✦</i><span>React</span><i>✦</i><span>TypeScript</span><i>✦</i><span>Next.js</span><i>✦</i>
+        <span>JavaScript</span><i>✦</i><span>SCSS</span><i>✦</i><span>Node.js</span><i>✦</i><span>Transloco</span><i>✦</i>
+        <span>Accessibility</span><i>✦</i><span>Jasmine</span><i>✦</i><span>SonarQube</span><i>✦</i><span>Docker</span><i>✦</i>
+        <span>Angular</span><i>✦</i><span>React</span><i>✦</i><span>TypeScript</span><i>✦</i><span>Next.js</span><i>✦</i>
+        <span>JavaScript</span><i>✦</i><span>SCSS</span><i>✦</i><span>Node.js</span><i>✦</i><span>Transloco</span><i>✦</i>
+        <span>Accessibility</span><i>✦</i><span>Jasmine</span><i>✦</i><span>SonarQube</span><i>✦</i><span>Docker</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">01.</span>
+          <h2 class="section__title scramble" data-text="About Me">About Me</h2>
+          <span class="section__line"></span>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <p>
+              I'm a <strong class="grad">Senior Front-End Developer</strong> with 6+ years of experience building and
+              maintaining scalable web applications, enterprise platforms and multilingual digital products.
+            </p>
+            <p>
+              I currently work at <strong>AlmavivA S.p.A.</strong> on <strong>Italian government platforms</strong>,
+              including the public health platform <strong>FSE 2.0</strong>, a national fishing platform, maps
+              platforms and a notifications platform. I build complex citizen-facing workflows, integrate multiple
+              public-sector APIs, and improve architecture, accessibility and code quality.
+            </p>
+            <p>
+              I enjoy working in international, cross-functional teams and taking features from requirements analysis
+              through development, testing, release and maintenance, keeping the code clean, tested and accessible.
+            </p>
+            <ul class="about__highlights">
+              <li>Angular architecture &amp; reusable components</li>
+              <li>REST API integration &amp; data mapping</li>
+              <li>Internationalization with Transloco</li>
+              <li>Accessibility (a11y) &amp; responsive UI</li>
+              <li>Unit testing with Jasmine &amp; Karma</li>
+              <li>SonarQube &amp; clean code practices</li>
+            </ul>
+          </div>
+
+          <div class="about__stats">
+            <div class="stat-card tilt reveal" data-delay="0">
+              <div class="stat-card__num"><span class="counter" data-target="6">0</span>+</div>
+              <div class="stat-card__label">Years of Experience</div>
+            </div>
+            <div class="stat-card tilt reveal" data-delay="100">
+              <div class="stat-card__num"><span class="counter" data-target="10">0</span>+</div>
+              <div class="stat-card__label">Major Platforms Delivered</div>
+            </div>
+            <div class="stat-card tilt reveal" data-delay="200">
+              <div class="stat-card__num"><span class="counter" data-target="3">0</span></div>
+              <div class="stat-card__label">Countries' Teams (IT · US · EG)</div>
+            </div>
+            <div class="stat-card tilt reveal" data-delay="300">
+              <div class="stat-card__num"><span class="counter" data-target="40">0</span>+</div>
+              <div class="stat-card__label">Technologies &amp; Tools</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">02.</span>
+          <h2 class="section__title scramble" data-text="Skills & Tech">Skills &amp; Tech</h2>
+          <span class="section__line"></span>
+        </div>
+
+        <div class="skills__tabs reveal" role="tablist">
+          <button class="skills__tab active" data-tab="frontend" data-hover>Frontend</button>
+          <button class="skills__tab" data-tab="angular" data-hover>Angular</button>
+          <button class="skills__tab" data-tab="backend" data-hover>Backend</button>
+          <button class="skills__tab" data-tab="testing" data-hover>Testing &amp; Quality</button>
+          <button class="skills__tab" data-tab="tools" data-hover>Tools &amp; DevOps</button>
+          <button class="skills__tab" data-tab="core" data-hover>Core Concepts</button>
+          <span class="skills__indicator"></span>
+        </div>
+
+        <div class="skills__panels">
+          <div class="skills__panel active" data-panel="frontend">
+            <div class="skill-chip" data-hover>Angular</div>
+            <div class="skill-chip" data-hover>React.js</div>
+            <div class="skill-chip" data-hover>Next.js</div>
+            <div class="skill-chip" data-hover>JavaScript ES6+</div>
+            <div class="skill-chip" data-hover>TypeScript</div>
+            <div class="skill-chip" data-hover>HTML5</div>
+            <div class="skill-chip" data-hover>CSS3</div>
+            <div class="skill-chip" data-hover>SCSS</div>
+            <div class="skill-chip" data-hover>Bootstrap</div>
+            <div class="skill-chip" data-hover>Material UI</div>
+            <div class="skill-chip" data-hover>Responsive Design</div>
+            <div class="skill-chip" data-hover>Accessibility (a11y)</div>
+            <div class="skill-chip" data-hover>PWA</div>
+          </div>
+          <div class="skills__panel" data-panel="angular">
+            <div class="skill-chip" data-hover>Reusable UI Architecture</div>
+            <div class="skill-chip" data-hover>Reactive Forms</div>
+            <div class="skill-chip" data-hover>Signals</div>
+            <div class="skill-chip" data-hover>Dependency Injection</div>
+            <div class="skill-chip" data-hover>Routing &amp; Guards</div>
+            <div class="skill-chip" data-hover>Services</div>
+            <div class="skill-chip" data-hover>Transloco i18n</div>
+            <div class="skill-chip" data-hover>API Integration</div>
+            <div class="skill-chip" data-hover>Performance Optimization</div>
+          </div>
+          <div class="skills__panel" data-panel="backend">
+            <div class="skill-chip" data-hover>Node.js</div>
+            <div class="skill-chip" data-hover>Express.js</div>
+            <div class="skill-chip" data-hover>REST APIs</div>
+            <div class="skill-chip" data-hover>MongoDB</div>
+            <div class="skill-chip" data-hover>Django</div>
+            <div class="skill-chip" data-hover>Stripe</div>
+            <div class="skill-chip" data-hover>Twilio</div>
+            <div class="skill-chip" data-hover>Third-party Services</div>
+          </div>
+          <div class="skills__panel" data-panel="testing">
+            <div class="skill-chip" data-hover>Jasmine</div>
+            <div class="skill-chip" data-hover>Karma</div>
+            <div class="skill-chip" data-hover>Unit Testing</div>
+            <div class="skill-chip" data-hover>SonarQube</div>
+            <div class="skill-chip" data-hover>Code Reviews</div>
+            <div class="skill-chip" data-hover>Debugging</div>
+            <div class="skill-chip" data-hover>Performance Tuning</div>
+            <div class="skill-chip" data-hover>Formik &amp; Yup</div>
+          </div>
+          <div class="skills__panel" data-panel="tools">
+            <div class="skill-chip" data-hover>Git</div>
+            <div class="skill-chip" data-hover>GitLab</div>
+            <div class="skill-chip" data-hover>GitHub</div>
+            <div class="skill-chip" data-hover>Agile / Scrum</div>
+            <div class="skill-chip" data-hover>CI/CD</div>
+            <div class="skill-chip" data-hover>Docker</div>
+            <div class="skill-chip" data-hover>Jenkins</div>
+            <div class="skill-chip" data-hover>Kubernetes</div>
+            <div class="skill-chip" data-hover>AWS</div>
+          </div>
+          <div class="skills__panel" data-panel="core">
+            <div class="skill-chip" data-hover>OOP</div>
+            <div class="skill-chip" data-hover>Design Patterns</div>
+            <div class="skill-chip" data-hover>Data Structures</div>
+            <div class="skill-chip" data-hover>Algorithms</div>
+            <div class="skill-chip" data-hover>Problem Solving</div>
+            <div class="skill-chip" data-hover>Clean Code</div>
+            <div class="skill-chip" data-hover>Software Architecture</div>
+          </div>
+        </div>
+
+        <div class="skills__bars">
+          <div class="bar reveal"><div class="bar__head"><span>Angular &amp; TypeScript</span><span class="bar__val">95%</span></div><div class="bar__track"><div class="bar__fill" data-width="95"></div></div></div>
+          <div class="bar reveal" data-delay="80"><div class="bar__head"><span>React.js &amp; Next.js</span><span class="bar__val">90%</span></div><div class="bar__track"><div class="bar__fill" data-width="90"></div></div></div>
+          <div class="bar reveal" data-delay="160"><div class="bar__head"><span>HTML / CSS / SCSS / Bootstrap</span><span class="bar__val">95%</span></div><div class="bar__track"><div class="bar__fill" data-width="95"></div></div></div>
+          <div class="bar reveal" data-delay="240"><div class="bar__head"><span>Accessibility &amp; i18n</span><span class="bar__val">88%</span></div><div class="bar__track"><div class="bar__fill" data-width="88"></div></div></div>
+          <div class="bar reveal" data-delay="320"><div class="bar__head"><span>Testing &amp; Code Quality</span><span class="bar__val">85%</span></div><div class="bar__track"><div class="bar__fill" data-width="85"></div></div></div>
+          <div class="bar reveal" data-delay="400"><div class="bar__head"><span>Node.js / Express / REST</span><span class="bar__val">80%</span></div><div class="bar__track"><div class="bar__fill" data-width="80"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">03.</span>
+          <h2 class="section__title scramble" data-text="Experience">Experience</h2>
+          <span class="section__line"></span>
+        </div>
+
+        <div class="timeline" id="timeline">
+          <div class="timeline__line"><div class="timeline__progress" id="timelineProgress"></div></div>
+
+          <article class="tl-item reveal">
+            <div class="tl-item__dot"></div>
+            <div class="tl-card tilt" data-tilt-max="4">
+              <div class="tl-card__top">
+                <div>
+                  <h3 class="tl-card__role">Senior Front-End Web Developer</h3>
+                  <p class="tl-card__company">AlmavivA S.p.A. <span>· Italy · Government Platforms</span></p>
+                </div>
+                <span class="tl-card__date">Jan 2025 – Present</span>
+              </div>
+              <p class="tl-card__desc">
+                Building enterprise-level Angular applications for large-scale <strong>Italian government</strong> websites:
+                the public health platform <strong>FSE 2.0 (Fascicolo Sanitario Elettronico)</strong>, a fishing
+                platform, maps platforms and a notifications platform.
+              </p>
+              <ul class="tl-card__list">
+                <li>Complex appointment booking, availability, editing &amp; service-selection flows integrated with multiple CUP APIs.</li>
+                <li>Frontend features for government fishing, maps and notifications platforms used by citizens and public administrations.</li>
+                <li>Reusable Angular components that improved architecture and reduced duplicated logic.</li>
+                <li>Transloco i18n refactoring of shared components to improve translation architecture.</li>
+                <li>Bootstrap migration &amp; UI modernization, fixing layout and responsive issues app-wide.</li>
+                <li>Accessibility improvements, unit tests, regression fixes &amp; SonarQube issue resolution.</li>
+                <li>Code reviews, GitLab MRs and release preparation with Italian, backend &amp; QA teams.</li>
+              </ul>
+              <div class="tl-card__tags">
+                <span>Angular</span><span>TypeScript</span><span>SCSS</span><span>Bootstrap</span><span>Transloco</span><span>Jasmine</span><span>SonarQube</span><span>GitLab</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <div class="tl-item__dot"></div>
+            <div class="tl-card tilt" data-tilt-max="4">
+              <div class="tl-card__top">
+                <div>
+                  <h3 class="tl-card__role">Front-End Web Developer</h3>
+                  <p class="tl-card__company">EYouth <span>· Egypt</span></p>
+                </div>
+                <span class="tl-card__date">May 2022 – Dec 2024</span>
+              </div>
+              <p class="tl-card__desc">
+                Developed responsive, user-focused web applications for large educational and business platforms
+                serving students, instructors and administrators across B2C &amp; B2B.
+              </p>
+              <ul class="tl-card__list">
+                <li>Reusable UI components &amp; responsive interfaces with React.js and Material UI.</li>
+                <li>Complex validated forms using Formik and Yup.</li>
+                <li>REST API integration for authentication, data submission and workflows.</li>
+                <li>SEO optimization that improved site structure, performance and visibility.</li>
+                <li>Close collaboration with backend devs and designers in Agile teams.</li>
+              </ul>
+              <div class="tl-card__tags">
+                <span>React.js</span><span>JavaScript</span><span>Material UI</span><span>Formik</span><span>Yup</span><span>SCSS</span><span>SEO</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <div class="tl-item__dot"></div>
+            <div class="tl-card tilt" data-tilt-max="4">
+              <div class="tl-card__top">
+                <div>
+                  <h3 class="tl-card__role">Full Stack Software Engineer</h3>
+                  <p class="tl-card__company">Insight Global <span>· Remote / U.S. Teams</span></p>
+                </div>
+                <span class="tl-card__date">Mar 2020 – May 2022</span>
+              </div>
+              <p class="tl-card__desc">
+                Built full-stack web applications across the complete SDLC with U.S.-based development teams.
+              </p>
+              <ul class="tl-card__list">
+                <li>Full-stack apps with React, Angular, Node.js, Express.js and Django.</li>
+                <li>Designed &amp; integrated RESTful APIs between frontends and backend services.</li>
+                <li>Integrated Stripe payments and Twilio notifications.</li>
+                <li>Worked with AWS, Docker, Jenkins &amp; Kubernetes on automated testing and deployment.</li>
+                <li>Troubleshot production issues and optimized performance and scalability.</li>
+              </ul>
+              <div class="tl-card__tags">
+                <span>React</span><span>Angular</span><span>Node.js</span><span>Express</span><span>Django</span><span>AWS</span><span>Docker</span><span>Kubernetes</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">04.</span>
+          <h2 class="section__title scramble" data-text="Featured Projects">Featured Projects</h2>
+          <span class="section__line"></span>
+        </div>
+
+        <div class="projects__filters reveal">
+          <button class="filter-btn active" data-filter="all" data-hover>All</button>
+          <button class="filter-btn" data-filter="government" data-hover>Italian Government</button>
+          <button class="filter-btn" data-filter="education" data-hover>Education</button>
+          <button class="filter-btn" data-filter="web" data-hover>Web Platforms</button>
+        </div>
+
+        <div class="projects__grid" id="projectsGrid">
+          <article class="project-card project-card--featured tilt reveal" data-category="government">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head">
+              <span class="project-card__icon">🏥</span>
+              <span class="project-card__badge">Featured · Italian Government</span>
+            </div>
+            <h3 class="project-card__title">FSE 2.0 — Public Health Platform</h3>
+            <p class="project-card__desc">
+              Fascicolo Sanitario Elettronico, Italy's public-sector electronic health record platform. Built complex
+              citizen-facing appointment booking, editing, availability and service-selection workflows integrated
+              with multiple CUP APIs, plus Transloco i18n architecture, Bootstrap migration and accessibility improvements.
+            </p>
+            <div class="project-card__tags"><span>Angular</span><span>TypeScript</span><span>Transloco</span><span>Bootstrap</span><span>a11y</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="government" data-delay="80">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">🎣</span><span class="project-card__badge">Italy Gov · AlmavivA</span></div>
+            <h3 class="project-card__title">Fishing Platform</h3>
+            <p class="project-card__desc">Italian government fishing platform. Developed Angular features, forms and API integrations for citizens and public administrations.</p>
+            <div class="project-card__tags"><span>Angular</span><span>TypeScript</span><span>REST APIs</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="government" data-delay="0">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">🗺️</span><span class="project-card__badge">Italy Gov · AlmavivA</span></div>
+            <h3 class="project-card__title">Maps Platforms</h3>
+            <p class="project-card__desc">Italian government maps websites. Built interactive, responsive map-based interfaces and integrated geographic data from public-sector APIs.</p>
+            <div class="project-card__tags"><span>Angular</span><span>Maps</span><span>Responsive UI</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="government" data-delay="80">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">🔔</span><span class="project-card__badge">Italy Gov · AlmavivA</span></div>
+            <h3 class="project-card__title">Notifications Platform</h3>
+            <p class="project-card__desc">Italian government notifications website. Developed accessible, multilingual interfaces for managing and delivering notifications to citizens.</p>
+            <div class="project-card__tags"><span>Angular</span><span>Transloco</span><span>a11y</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="government" data-delay="160">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">🏛️</span><span class="project-card__badge">Italy Gov · AlmavivA</span></div>
+            <h3 class="project-card__title">Shared Gov UI &amp; Quality</h3>
+            <p class="project-card__desc">Reusable Angular components, Bootstrap migration, unit tests and SonarQube improvements shared across the Italian government platforms.</p>
+            <div class="project-card__tags"><span>Angular</span><span>Jasmine</span><span>SonarQube</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="education" data-delay="80">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">🏫</span><span class="project-card__badge">EYouth</span></div>
+            <h3 class="project-card__title">Taibah University LMS</h3>
+            <p class="project-card__desc">University learning management platform in Saudi Arabia: user forms, API integrations, authentication workflows and UI improvements.</p>
+            <div class="project-card__tags"><span>React</span><span>MUI</span><span>Formik</span><span>Yup</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="education" data-delay="160">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">🚀</span><span class="project-card__badge">EYouth</span></div>
+            <h3 class="project-card__title">Digital Egypt Pioneers (DEPI)</h3>
+            <p class="project-card__desc">Comprehensive educational platform supporting students, instructors and administrators in managing programs and progress.</p>
+            <div class="project-card__tags"><span>React</span><span>REST APIs</span><span>MUI</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="education" data-delay="0">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">🎓</span><span class="project-card__badge">EYouth</span></div>
+            <h3 class="project-card__title">Nextera Education</h3>
+            <p class="project-card__desc">Modern education platform for public schools, private schools and universities with responsive UIs, validated forms and reusable components.</p>
+            <div class="project-card__tags"><span>React</span><span>Material UI</span><span>Formik</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="education" data-delay="80">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">📚</span><span class="project-card__badge">EYouth</span></div>
+            <h3 class="project-card__title">EYouth Learning</h3>
+            <p class="project-card__desc">Interactive educational platform delivering online learning content and services.</p>
+            <div class="project-card__tags"><span>React</span><span>SCSS</span><span>SEO</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="web" data-delay="160">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">🌍</span><span class="project-card__badge">EYouth</span></div>
+            <h3 class="project-card__title">Arab Youth Council for Climate Change</h3>
+            <p class="project-card__desc">Dynamic website supporting climate-change initiatives and educational content for Arab youth.</p>
+            <div class="project-card__tags"><span>React</span><span>Responsive</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="web" data-delay="0">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">💡</span><span class="project-card__badge">EYouth</span></div>
+            <h3 class="project-card__title">Arab Youth Technology Fellowship</h3>
+            <p class="project-card__desc">Engaging web platform supporting technology fellowship programs across the Arab region.</p>
+            <div class="project-card__tags"><span>React</span><span>UI/UX</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="web" data-delay="80">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">💼</span><span class="project-card__badge">EYouth</span></div>
+            <h3 class="project-card__title">EYouth Business</h3>
+            <p class="project-card__desc">Business-focused web presence and frontend solutions for B2B services.</p>
+            <div class="project-card__tags"><span>React</span><span>B2B</span><span>SEO</span></div>
+          </article>
+
+          <article class="project-card tilt reveal" data-category="web" data-delay="160">
+            <div class="project-card__glow"></div>
+            <div class="project-card__head"><span class="project-card__icon">💳</span><span class="project-card__badge">Insight Global</span></div>
+            <h3 class="project-card__title">Full-Stack Apps with Payments</h3>
+            <p class="project-card__desc">Full-stack applications with Stripe payments and Twilio notifications, deployed with Docker, Jenkins and Kubernetes on AWS.</p>
+            <div class="project-card__tags"><span>Node.js</span><span>Django</span><span>Stripe</span><span>AWS</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">05.</span>
+          <h2 class="section__title scramble" data-text="Education">Education</h2>
+          <span class="section__line"></span>
+        </div>
+
+        <div class="edu__grid">
+          <div class="edu-card tilt reveal">
+            <div class="edu-card__icon">🏛️</div>
+            <h3>MERN Track — Intensive Code Camp</h3>
+            <p class="edu-card__org">Information Technology Institute (ITI) · MCIT</p>
+            <div class="edu-card__tags">
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React.js</span><span>Angular</span><span>Node.js</span>
+              <span>jQuery</span><span>Agile</span><span>OOP</span><span>MVC</span><span>ERD</span>
+            </div>
+          </div>
+          <div class="edu-card tilt reveal" data-delay="120">
+            <div class="edu-card__icon">🎓</div>
+            <h3>Faculty of Education</h3>
+            <p class="edu-card__org">Cairo University · Egypt</p>
+            <p class="edu-card__desc">A strong foundation in communication, structured thinking and knowledge sharing, skills I use every day in cross-functional teams.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY -->
+    <section class="section" id="play">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">06.</span>
+          <h2 class="section__title scramble" data-text="Bug Smasher">Bug Smasher</h2>
+          <span class="section__line"></span>
+        </div>
+        <p class="game__intro reveal">
+          Take a break! Squash the bugs before they reach production, but don't break the features 🚀.
+          You have 20 seconds.
+        </p>
+
+        <div class="game reveal">
+          <div class="game__hud">
+            <span>🎯 Score <b id="gameScore">0</b></span>
+            <span>⏱️ Time <b id="gameTime">20</b>s</span>
+            <span>🏆 Best <b id="gameBest">0</b></span>
+          </div>
+          <div class="game__arena" id="gameArena">
+            <div class="game__overlay" id="gameOverlay">
+              <div class="game__overlay-inner">
+                <div class="game__emoji" id="gameEmoji">🐛</div>
+                <h3 id="gameTitle">Ready to debug?</h3>
+                <p id="gameMsg">🐛 = +1 &nbsp;·&nbsp; 🐞 = +3 (fast!) &nbsp;·&nbsp; 🚀 = −5 (it's a feature!)</p>
+                <button class="btn btn--primary" id="gameStart" data-hover><span>Start Debugging</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact__box reveal">
+          <span class="section__num">07. What's next?</span>
+          <h2 class="contact__title">Let's build something <span class="grad">amazing</span> together.</h2>
+          <p class="contact__text">
+            I'm open to new opportunities, collaborations and interesting projects.
+            Whether you have a question or just want to say hi, my inbox is always open!
+          </p>
+
+          <div class="contact__cards">
+            <button class="contact-card magnetic" id="copyEmail" data-hover>
+              <span class="contact-card__icon">✉️</span>
+              <span class="contact-card__label">Email (click to copy)</span>
+              <span class="contact-card__value">elhamhesham18@gmail.com</span>
+            </button>
+            <a class="contact-card magnetic" href="tel:+201000600258" data-hover>
+              <span class="contact-card__icon">📱</span>
+              <span class="contact-card__label">Phone</span>
+              <span class="contact-card__value">+20 100 060 0258</span>
+            </a>
+            <a class="contact-card magnetic" href="https://linkedin.com/in/webdeveloberelhamelsergany" target="_blank" rel="noopener" data-hover>
+              <span class="contact-card__icon">💼</span>
+              <span class="contact-card__label">LinkedIn</span>
+              <span class="contact-card__value">webdeveloberelhamelsergany</span>
+            </a>
+            <a class="contact-card magnetic" href="https://github.com/ElhamHeshamElsergany" target="_blank" rel="noopener" data-hover>
+              <span class="contact-card__icon">🐙</span>
+              <span class="contact-card__label">GitHub</span>
+              <span class="contact-card__value">ElhamHeshamElsergany</span>
+            </a>
+          </div>
+
+          <a href="mailto:elhamhesham18@gmail.com" class="btn btn--primary btn--lg magnetic" id="sayHello" data-hover>
+            <span>Say Hello 👋</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Designed &amp; built with 💜 by <span class="grad">Elham Hesham</span> · © <span id="year"></span></p>
+    <p class="footer__hint">Psst… press <kbd>`</kbd> to open the terminal, or try <kbd>↑</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd><kbd>←</kbd><kbd>→</kbd><kbd>B</kbd><kbd>A</kbd></p>
+  </footer>
+
+  <div class="fun-dock">
+    <button class="fun-dock__btn" id="terminalBtn" aria-label="Open terminal" title="Open terminal ( ` )" data-hover>&gt;_</button>
+    <button class="fun-dock__btn" id="achBtn" aria-label="Achievements" title="Achievements" data-hover>🏆 <span id="achCount">0/9</span></button>
+  </div>
+
+  <div class="terminal" id="terminal" role="dialog" aria-modal="true" aria-label="Terminal">
+    <div class="terminal__window">
+      <div class="code-window__bar">
+        <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+        <span class="code-window__title">elham@portfolio: ~</span>
+        <button class="terminal__close" id="terminalClose" aria-label="Close terminal" data-hover>✕</button>
+      </div>
+      <div class="terminal__body" id="terminalBody"></div>
+      <form class="terminal__form" id="terminalForm">
+        <label class="terminal__prompt" for="terminalInput">elham@portfolio:~$</label>
+        <input id="terminalInput" autocomplete="off" spellcheck="false" autocapitalize="off" />
+      </form>
+    </div>
+  </div>
+
+  <div class="ach-stack" id="achStack" aria-live="polite"></div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" data-hover>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <div class="toast" id="toast">Email copied to clipboard ✨</div>
+
+  <script src="script.js"></script>
+  <script src="fun.js"></script>
+</body>
+</html>
